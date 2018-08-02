@@ -1,0 +1,46 @@
+{
+  "name": "evt-testtool",
+  "version": "1.0.0",
+  "description": "Test Tool",
+  "main": "main.js",
+  "homepage": "https://wwww.wisilica.com",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm install && electron ./main",
+    "postinstall": "install-app-deps",
+    "pack": "build --dir",
+    "dist": "electron-builder",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=/home/smeenapadnekar/sniffer/assets/app-icon/mac/app  .icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . EVT --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"EVT TestTool\"",
+    "package-linux": "electron-packager . EVT --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "author": "smeenapadnekar <smeenapadnekar@gmail.com>",
+  "license": "ISC",
+  "build": {
+    "win": {
+      "target": [
+        "squirrel",
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "dist": "^0.1.2",
+    "electron": "^2.0.5",
+    "electron-builder": "^20.20.4",
+    "electron-installer-debian": "^0.8.1",
+    "electron-packager": "^12.1.0",
+    "electron-packager-dummy-wine": "^1.0.2",
+    "electron-winstaller": "^2.6.4",
+    "net": "^1.0.2"
+  }
+}
